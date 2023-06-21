@@ -1,6 +1,7 @@
 import { Raleway } from "next/font/google";
 import UserIcon from "~/icons/UserIcon";
-import Image from "next/image";
+import MissionPageContents from "./MissionSectionContents";
+
 const raleway = Raleway({ subsets: ["latin"] });
 
 export default function RootPage() {
@@ -27,37 +28,7 @@ const MissionPage = () => {
   return (
     <div className="topShadow relative flex h-screen flex-col justify-evenly bg-zinc-50 px-4 md:px-12">
       <div className="flex justify-evenly">
-        <div className="flex h-full flex-col justify-evenly">
-          <Image
-            src={"/Stock/jake-nackos-IF9TK5Uy-KI-unsplash.jpg"}
-            alt={"jake-nackos"}
-            height={320}
-            width={320}
-          />
-          <Image
-            src={"/Stock/michael-dam-mEZ3PoFGs_k-unsplash.jpg"}
-            alt={"michael-dam"}
-            height={320}
-            width={320}
-          />
-        </div>
-        <div className="flex h-screen w-[20vw] pt-[30vh] text-center align-middle text-3xl">
-          We seek to provide an uncompromising experience for our clients
-        </div>
-        <div className="flex h-full flex-col justify-evenly">
-          <Image
-            src={"/Stock/nicolas-horn-MTZTGvDsHFY-unsplash.jpg"}
-            alt={"nicolas-horn"}
-            height={320}
-            width={320}
-          />
-          <Image
-            src={"/Stock/terricks-noah-wJQk6xilGWk-unsplash.jpg"}
-            alt={"terricks-noah"}
-            height={320}
-            width={320}
-          />
-        </div>
+        <MissionPageContents />
       </div>
     </div>
   );
