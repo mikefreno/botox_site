@@ -27,6 +27,10 @@
   opacity: 1;
   animation: fade-out 0.5s ease-in-out forwards;
 }
+.page-fade-in {
+  opacity: 0;
+  animation: fade-in 1s ease-in forwards;
+}
 
 @keyframes fade-in {
   from {
@@ -57,7 +61,7 @@
   height: 1.5px;
   bottom: 0;
   left: 0;
-  background-color: white;
+  background-color: black;
   transform-origin: bottom right;
   transition: transform 0.35s ease-out;
 }
@@ -77,9 +81,43 @@
     box-shadow: 0px 0 25px 5px #fb923c;
   }
 }
-
+.text-shadow {
+  text-shadow: 1px 1px 0.5px black;
+}
 .navShadow {
   -webkit-box-shadow: 0px 0 25px 5px transparent;
   box-shadow: 0px 0 25px 5px transparent;
   animation: shadowfadein 1.5s forwards; /* Start the animation */
+}
+.topShadow {
+  -webkit-box-shadow: 10px 5px 20px 5px #fb923c;
+  box-shadow: 10px 5px 20px 5px #fb923c;
+}
+ul.icons {
+  cursor: default;
+  list-style: none;
+  padding-left: 0;
+}
+
+ul.icons li {
+  display: inline-block;
+  padding: 0 0.75em 0 0;
+}
+ul.icons li a {
+  border-radius: 9999999px;
+  box-shadow: inset 0 0 0 1px #e2e2e2;
+  display: flex;
+  height: 3rem;
+  line-height: 2.25rem;
+  text-align: center;
+  width: 3rem;
+  filter: brightness(80%);
+}
+
+ul.icons li a:hover {
+  background-color: rgba(255, 255, 255, 0.075);
+}
+
+ul.icons li a:active {
+  background-color: rgba(255, 255, 255, 0.175);
 }

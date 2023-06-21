@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import MenuBars from "~/icons/MenuBars";
-import useOnClickOutside from "./ClickOutsideHook";
+import useOnClickOutside from "../components/ClickOutsideHook";
 import { Raleway } from "next/font/google";
+import { FaceBookIcon, InstagramIcon, TicTocIcon } from "~/icons/BrandIcons";
 
 const raleway = Raleway({ subsets: ["latin"] });
 
@@ -47,7 +47,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed z-10 flex w-screen backdrop-blur-[1px]">
+      <nav className="fixed z-10 flex w-screen">
         <div className={`mx-4 my-2 flex flex-1 py-2`}>
           <Link href={"/"} className="flex">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -93,31 +93,71 @@ const dropdown = (menuShowing: boolean) => {
       <div
         className={`${
           menuShowing ? "navShadow right-0" : "-right-[100%]"
-        } fixed z-20 h-screen border-l-2 border-orange-200 bg-zinc-800 p-4 text-white transition-all duration-500 ease-out`}
+        } fixed z-20 h-screen border-l-2 border-orange-200 bg-zinc-50 p-4 text-black transition-all duration-500 ease-in-out`}
       >
         <div className="px-10 text-center text-3xl font-thin italic tracking-wider">
           Navigation
         </div>
-        <ul className="flex flex-col p-8 align-middle tracking-wide">
+        <ul className="flex flex-col px-8 py-8 align-middle tracking-wide md:px-12">
           <Link
-            href={"/contact"}
-            className="hover-underline-animation mx-auto my-2 w-fit px-2 text-lg"
+            href={"#contact"}
+            className="hover-underline-animation mx-auto my-8 w-fit px-4 text-lg tracking-wider"
           >
             Contact Us
           </Link>
           <Link
-            href={"#pricing"}
-            className="hover-underline-animation mx-auto my-2 w-fit px-2 text-lg"
+            href={"/pricing"}
+            className="hover-underline-animation mx-auto my-8 w-fit px-4 text-lg tracking-wider"
           >
             Pricing
           </Link>
           <Link
             href={"/account"}
-            className="hover-underline-animation mx-auto my-2 w-fit px-2 text-lg"
+            className="hover-underline-animation mx-auto my-8 w-fit px-4 text-lg tracking-wider"
           >
             Login
           </Link>
         </ul>
+        <div className="absolute bottom-8 w-full">
+          <ul className="icons flex w-full justify-center py-4">
+            <li>
+              <a
+                href=""
+                target="_blank"
+                rel="noreferrer"
+                className="hvr-grow-rotate-left rounded-full border-zinc-800 dark:border-zinc-300"
+              >
+                <span className="m-auto">
+                  <FaceBookIcon height={28} width={28} />
+                </span>
+              </a>
+            </li>
+            <li>
+              <a
+                href=""
+                target="_blank"
+                rel="noreferrer"
+                className="hvr-grow-rotate rounded-full border-zinc-800 dark:border-zinc-300"
+              >
+                <span className="m-auto">
+                  <InstagramIcon height={28} width={28} />
+                </span>
+              </a>
+            </li>
+            <li>
+              <a
+                href=""
+                target="_blank"
+                rel="noreferrer"
+                className="hvr-grow-rotate rounded-full border-zinc-300"
+              >
+                <span className="m-auto">
+                  <TicTocIcon height={28} width={28} />
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </>
   );
