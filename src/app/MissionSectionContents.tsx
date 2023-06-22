@@ -21,12 +21,12 @@ export default function MissionPageContents() {
   }, []);
 
   useEffect(() => {
-    if (scrollHeight >= 200 && scrollHeight <= 1200) {
+    if (scrollHeight >= 200 && scrollHeight <= 1300) {
       setFirstLoad(true);
     } else {
       setFirstLoad(false);
     }
-    if (scrollHeight >= 550 && scrollHeight <= 1680) {
+    if (scrollHeight >= 550 && scrollHeight <= 1750) {
       setSecondLoad(true);
     } else {
       setSecondLoad(false);
