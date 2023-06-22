@@ -101,7 +101,7 @@ const ContactPage = () => {
       <div className="text-center text-3xl">Contact Us</div>
       <Link
         href={"/booking"}
-        className="mx-auto w-fit rounded bg-orange-300 px-8 py-6 text-xl text-white drop-shadow-xl transition-all duration-200 ease-in-out hover:bg-orange-400 hover:shadow-inner active:scale-90"
+        className="mx-auto w-fit rounded bg-green-400 px-8 py-6 text-xl text-white drop-shadow-xl transition-all duration-200 ease-in-out hover:bg-green-500 hover:shadow-inner active:scale-90"
       >
         Book An Appointment
       </Link>

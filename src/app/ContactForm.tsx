@@ -20,6 +20,7 @@ export default function ContactForm() {
     if (!token && captchaRef.current) {
       captchaRef.current.execute();
       setNoTokenOccurred(true);
+      setSendButtonLoading(false);
       return;
     }
     if (nameRef.current && emailRef.current && messageRef.current) {
