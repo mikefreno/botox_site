@@ -1,6 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 
 export default function ContactForm() {
   const nameRef = useRef<HTMLInputElement>(null);
@@ -9,6 +10,8 @@ export default function ContactForm() {
   const [sendButtonLoading, setSendButtonLoading] = useState<boolean>(false);
   const [sentAMessage, setSentAMessage] = useState<boolean>(false);
   const [errorOccurred, setErrorOccurred] = useState<boolean>(false);
+  const [token, setToken] = useState<string>("");
+  const captchaRef = useRef<HCaptcha>(null);
 
   const sendContactEmail = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -34,11 +37,31 @@ export default function ContactForm() {
     }
     setSendButtonLoading(false);
   };
+  const captchaOnLoad = () => {
+    if (captchaRef.current) {
+      // this reaches out to the hCaptcha JS API and runs the
+      // execute function on it. you can use other functions as
+      // documented here:
+      // https://docs.hcaptcha.com/configuration#jsapi
+
+      captchaRef.current.execute();
+    }
+  };
+  useEffect(() => {
+    if (token) console.log(`hCaptcha Token: ${token}`);
+  }, [token]);
 
   return (
     <>
       {/*  eslint-disable-next-line @typescript-eslint/no-misused-promises */}
       <form onSubmit={sendContactEmail}>
+        <HCaptcha
+          sitekey="ecd10548-6649-4662-ac30-008d5a1ec14a"
+          onLoad={captchaOnLoad}
+          onVerify={setToken}
+          ref={captchaRef}
+          size="invisible"
+        />
         <div className="flex flex-row justify-evenly">
           <div className="input-group mx-1">
             <input
