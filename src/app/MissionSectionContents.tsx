@@ -21,12 +21,15 @@ export default function MissionPageContents() {
   }, []);
 
   useEffect(() => {
-    console.log(scrollHeight);
-    if (scrollHeight >= 130) {
+    if (scrollHeight >= 200 && scrollHeight <= 1200) {
       setFirstLoad(true);
+    } else {
+      setFirstLoad(false);
     }
-    if (scrollHeight >= 495) {
+    if (scrollHeight >= 550 && scrollHeight <= 1680) {
       setSecondLoad(true);
+    } else {
+      setSecondLoad(false);
     }
   }, [scrollHeight]);
 
@@ -38,14 +41,18 @@ export default function MissionPageContents() {
           alt={"jake-nackos"}
           height={320}
           width={320}
-          className={firstLoad ? "fade-in" : "opacity-0"}
+          className={`${
+            firstLoad ? "fade-in-long" : "fade-out translate-y-full opacity-0"
+          } transition-all duration-1000 ease-in-out`}
         />
         <Image
           src={"/Stock/michael-dam-mEZ3PoFGs_k-unsplash.jpg"}
           alt={"michael-dam"}
           height={320}
           width={320}
-          className={secondLoad ? "fade-in" : "opacity-0"}
+          className={`${
+            secondLoad ? "fade-in-long" : "fade-out -translate-x-full opacity-0"
+          } transition-all duration-1000 ease-in-out`}
         />
       </div>
       <div className="flex h-screen w-[20vw] pt-[30vh] text-center align-middle text-3xl">
@@ -57,14 +64,18 @@ export default function MissionPageContents() {
           alt={"nicolas-horn"}
           height={320}
           width={320}
-          className={firstLoad ? "fade-in" : "opacity-0"}
+          className={`${
+            firstLoad ? "fade-in-long" : "fade-out translate-x-full opacity-0"
+          } transition-all duration-1000 ease-in-out`}
         />
         <Image
           src={"/Stock/terricks-noah-wJQk6xilGWk-unsplash.jpg"}
           alt={"terricks-noah"}
           height={320}
           width={320}
-          className={secondLoad ? "fade-in" : "opacity-0"}
+          className={`${
+            secondLoad ? "fade-in-long" : "fade-out translate-y-full opacity-0"
+          } transition-all duration-1000 ease-in-out`}
         />
       </div>
     </>

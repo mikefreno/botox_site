@@ -23,6 +23,10 @@
   opacity: 0;
   animation: fade-in 0.5s ease-in-out forwards;
 }
+.fade-in-long {
+  opacity: 0;
+  animation: fade-in 1s ease-in-out forwards;
+}
 .fade-out {
   opacity: 1;
   animation: fade-out 0.5s ease-in-out forwards;
@@ -120,4 +124,110 @@ ul.icons li a:hover {
 
 ul.icons li a:active {
   background-color: rgba(255, 255, 255, 0.175);
+}
+.input-group {
+  position: relative;
+  margin-top: 45px;
+}
+
+input {
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+input:focus {
+  outline: none;
+}
+
+.bar {
+  position: relative;
+  display: block;
+}
+
+.bar:before,
+.bar:after {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 0px;
+  position: absolute;
+  background: #fb923c;
+  transition: width 0.3s ease-out;
+}
+
+.bar:before {
+  left: 50%;
+}
+
+.bar:after {
+  right: 50%;
+}
+
+input:focus ~ .bar:before,
+input:focus ~ .bar:after {
+  width: 50%;
+}
+
+input:focus ~ label,
+input:valid ~ label {
+  top: -20px;
+  font-size: 14px;
+  color: #fb923c;
+}
+
+label {
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.textarea-group {
+  position: relative;
+  margin-top: 45px;
+}
+
+textarea {
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  resize: none;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+textarea:focus ~ .bar:before,
+textarea:focus ~ .bar:after {
+  width: 50%;
+}
+
+textarea:focus ~ label,
+textarea:valid ~ label {
+  top: -20px;
+  font-size: 14px;
+  color: #fb923c;
+}
+
+.rule-around {
+  display: flex;
+  align-items: center;
+}
+
+.rule-around:before,
+.rule-around:after {
+  content: "";
+  flex: 1;
+  border-top: 1px solid #ccc;
+  margin: 0 10px;
 }

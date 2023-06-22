@@ -1,6 +1,8 @@
 import { Raleway } from "next/font/google";
 import UserIcon from "~/icons/UserIcon";
 import MissionPageContents from "./MissionSectionContents";
+import ContactForm from "./ContactForm";
+import Link from "next/link";
 
 const raleway = Raleway({ subsets: ["latin"] });
 
@@ -17,9 +19,9 @@ export default function RootPage() {
           </div>
         </div>
       </div>
-      {MissionPage()}
-      {TeamPage()}
-      {ContactPage()}
+      <MissionPage />
+      <TeamPage />
+      <ContactPage />
     </div>
   );
 }
@@ -36,7 +38,7 @@ const MissionPage = () => {
 
 const TeamPage = () => {
   return (
-    <div className="relative flex h-screen flex-col justify-evenly bg-orange-200 px-4 md:px-12">
+    <div className="relative flex h-screen flex-col justify-evenly bg-orange-200 px-4 align-middle md:px-12">
       <div className="text-center text-5xl font-light tracking-wider text-black">
         Our Team
       </div>
@@ -91,5 +93,24 @@ const TeamPage = () => {
 };
 
 const ContactPage = () => {
-  return <div></div>;
+  return (
+    <div
+      className="relative flex h-screen flex-col justify-evenly bg-zinc-50 px-4 md:px-12"
+      id="contact"
+    >
+      <div className="text-center text-3xl">Contact Us</div>
+      <Link
+        href={"/booking"}
+        className="mx-auto w-fit rounded bg-orange-400 bg-opacity-40 px-4 py-2 text-white shadow-md hover:bg-opacity-80 active:bg-opacity-100"
+      >
+        Book An Appointment
+      </Link>
+
+      <div className="rule-around">or</div>
+      <div className="mx-auto w-11/12 rounded-xl px-8 py-4 shadow-2xl sm:w-3/4 md:w-2/3 lg:w-1/2">
+        <div className="text-2xl font-light">Send Us A Message</div>
+        <ContactForm />
+      </div>
+    </div>
+  );
 };
