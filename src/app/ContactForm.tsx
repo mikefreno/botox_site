@@ -38,9 +38,6 @@ export default function ContactForm() {
     }
     setSendButtonLoading(false);
   };
-  useEffect(() => {
-    if (token) console.log(`hCaptcha Token: ${token}`);
-  }, [token]);
 
   return (
     <>
