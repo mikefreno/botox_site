@@ -1,6 +1,7 @@
 import Navbar from "~/app/Navbar";
 import "src/styles/globals.css";
 import Footer from "./Footer";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function RootLayout({
   children,
@@ -8,7 +9,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <link rel="icon" href="/favicon.ico" sizes="any" />
       <title>Upper East Clinicians</title>
       <meta></meta>
@@ -16,6 +17,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
