@@ -58,7 +58,7 @@ export default function ContactForm() {
       {/*  eslint-disable-next-line @typescript-eslint/no-misused-promises */}
       <form onSubmit={sendContactEmail}>
         <HCaptcha
-          sitekey="ecd10548-6649-4662-ac30-008d5a1ec14a"
+          sitekey="69ac499a-3b0e-499a-84db-cb22e11aad4b"
           onVerify={setToken}
           ref={captchaRef}
           size="invisible"
