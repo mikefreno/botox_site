@@ -37,16 +37,6 @@ export default function ContactForm() {
     }
     setSendButtonLoading(false);
   };
-  const captchaOnLoad = () => {
-    if (captchaRef.current) {
-      // this reaches out to the hCaptcha JS API and runs the
-      // execute function on it. you can use other functions as
-      // documented here:
-      // https://docs.hcaptcha.com/configuration#jsapi
-
-      captchaRef.current.execute();
-    }
-  };
   useEffect(() => {
     if (token) console.log(`hCaptcha Token: ${token}`);
   }, [token]);
@@ -57,7 +47,6 @@ export default function ContactForm() {
       <form onSubmit={sendContactEmail}>
         <HCaptcha
           sitekey="ecd10548-6649-4662-ac30-008d5a1ec14a"
-          onLoad={captchaOnLoad}
           onVerify={setToken}
           ref={captchaRef}
           size="invisible"
