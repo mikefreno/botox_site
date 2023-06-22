@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import HCaptcha from "@hcaptcha/react-hcaptcha";
+// import HCaptcha from "@hcaptcha/react-hcaptcha";
 
 export default function ContactForm() {
   const nameRef = useRef<HTMLInputElement>(null);
@@ -9,26 +9,26 @@ export default function ContactForm() {
   const messageRef = useRef<HTMLTextAreaElement>(null);
   const [sendButtonLoading, setSendButtonLoading] = useState<boolean>(false);
   const [sentAMessage, setSentAMessage] = useState<boolean>(false);
-  const [noTokenOccurred, setNoTokenOccurred] = useState<boolean>(false);
   const [errorOccurred, setErrorOccurred] = useState<boolean>(false);
-  const [token, setToken] = useState<string>("");
-  const captchaRef = useRef<HCaptcha>(null);
+  // const [noTokenOccurred, setNoTokenOccurred] = useState<boolean>(false);
+  // const [token, setToken] = useState<string>("");
+  // const captchaRef = useRef<HCaptcha>(null);
 
   const sendContactEmail = async (e: React.FormEvent) => {
     e.preventDefault();
     setSendButtonLoading(true);
-    if (!token && captchaRef.current) {
-      captchaRef.current.execute();
-      setNoTokenOccurred(true);
-      setSendButtonLoading(false);
-      return;
-    }
+    // if (!token && captchaRef.current) {
+    //   captchaRef.current.execute();
+    //   setNoTokenOccurred(true);
+    //   setSendButtonLoading(false);
+    //   return;
+    // }
     if (nameRef.current && emailRef.current && messageRef.current) {
       const data = {
         name: nameRef.current.value,
         email: emailRef.current.value,
         message: messageRef.current.value,
-        token: token,
+        // token: token,
       };
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -48,22 +48,16 @@ export default function ContactForm() {
     setSendButtonLoading(false);
   };
 
-  useEffect(() => {
-    if (token) {
-      console.log(token);
-    }
-  }, [token]);
-
   return (
     <>
       {/*  eslint-disable-next-line @typescript-eslint/no-misused-promises */}
       <form onSubmit={sendContactEmail}>
-        <HCaptcha
+        {/* <HCaptcha
           sitekey="69ac499a-3b0e-499a-84db-cb22e11aad4b"
           onVerify={setToken}
           ref={captchaRef}
           size="invisible"
-        />
+        /> */}
         <div className="flex flex-row justify-evenly">
           <div className="input-group mx-1">
             <input
@@ -129,11 +123,11 @@ export default function ContactForm() {
             An Error Occurred, please try again / reload the page
           </div>
         ) : null}
-        {noTokenOccurred ? (
+        {/* {noTokenOccurred ? (
           <div className="text-center text-lg italic text-red-400">
             Unable to verify if human, please solve captcha.
           </div>
-        ) : null}
+        ) : null} */}
       </form>
     </>
   );

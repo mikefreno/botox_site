@@ -1,27 +1,27 @@
 import { Raleway } from "next/font/google";
 import UserIcon from "~/icons/UserIcon";
 import MissionPageContents from "./MissionSectionContents";
-import ContactForm from "./ContactForm";
-import Link from "next/link";
+// import ContactForm from "./ContactForm";
+// import Link from "next/link";
 
 const raleway = Raleway({ subsets: ["latin"] });
 
 export default function RootPage() {
   return (
-    <div className={raleway.className}>
+    <div className={`${raleway.className} mb-[100vh]`}>
       <div className="relative h-screen overflow-hidden bg-zinc-50">
-        <div className="page-fade-in z-50 h-screen bg-[url('/Stock/man-getting-botox.jpg')] bg-cover bg-fixed bg-center bg-no-repeat">
+        <div className="page-fade-in z-10 h-screen bg-[url('/Stock/man-getting-botox.jpg')] bg-cover bg-fixed bg-center bg-no-repeat">
           <div
-            className={`text-shadow fixed left-0 top-1/3 z-50 w-full text-center text-4xl tracking-widest text-white`}
+            className={`text-shadow fixed left-0 top-1/3 z-[-20] w-full text-center text-4xl tracking-widest text-white`}
           >
-            Licensed Botox Clinicians
+            A Refined Botox Concierge Aesthetics Provider
+            <div className="py-8">Serving Manhattan&apos;s Upper East Side</div>
             <div className="py-8">Serving Manhattan&apos;s Upper East Side</div>
           </div>
         </div>
       </div>
       <MissionPage />
       <TeamPage />
-      <ContactPage />
     </div>
   );
 }
@@ -87,29 +87,6 @@ const TeamPage = () => {
             explicabo iste.
           </p>
         </div>
-      </div>
-    </div>
-  );
-};
-
-const ContactPage = () => {
-  return (
-    <div
-      className="relative flex h-screen flex-col justify-evenly bg-zinc-50 px-4 md:px-12"
-      id="contact"
-    >
-      <div className="text-center text-3xl">Contact Us</div>
-      <Link
-        href={"/booking"}
-        className="mx-auto w-fit rounded bg-green-400 px-8 py-6 text-xl text-white drop-shadow-xl transition-all duration-200 ease-in-out hover:bg-green-500 hover:shadow-inner active:scale-90"
-      >
-        Book An Appointment
-      </Link>
-
-      <div className="rule-around">or</div>
-      <div className="mx-auto w-11/12 rounded-md px-8 py-4 shadow-2xl sm:w-3/4 md:w-2/3 lg:w-1/2">
-        <div className="text-2xl font-light">Send Us A Message</div>
-        <ContactForm />
       </div>
     </div>
   );
