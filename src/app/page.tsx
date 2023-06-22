@@ -101,13 +101,13 @@ const ContactPage = () => {
       <div className="text-center text-3xl">Contact Us</div>
       <Link
         href={"/booking"}
-        className="mx-auto w-fit rounded-xl bg-orange-300 px-8 py-6 text-xl text-white drop-shadow-xl transition-all duration-200 ease-in-out hover:bg-orange-400 hover:shadow-inner active:scale-90"
+        className="mx-auto w-fit rounded bg-orange-300 px-8 py-6 text-xl text-white drop-shadow-xl transition-all duration-200 ease-in-out hover:bg-orange-400 hover:shadow-inner active:scale-90"
       >
         Book An Appointment
       </Link>
 
       <div className="rule-around">or</div>
-      <div className="mx-auto w-11/12 rounded-xl px-8 py-4 shadow-2xl sm:w-3/4 md:w-2/3 lg:w-1/2">
+      <div className="mx-auto w-11/12 rounded-md px-8 py-4 shadow-2xl sm:w-3/4 md:w-2/3 lg:w-1/2">
         <div className="text-2xl font-light">Send Us A Message</div>
         <ContactForm />
       </div>

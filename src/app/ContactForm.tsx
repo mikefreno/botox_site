@@ -9,6 +9,7 @@ export default function ContactForm() {
   const messageRef = useRef<HTMLTextAreaElement>(null);
   const [sendButtonLoading, setSendButtonLoading] = useState<boolean>(false);
   const [sentAMessage, setSentAMessage] = useState<boolean>(false);
+  const [noTokenOccurred, setNoTokenOccurred] = useState<boolean>(false);
   const [errorOccurred, setErrorOccurred] = useState<boolean>(false);
   const [token, setToken] = useState<string>("");
   const captchaRef = useRef<HCaptcha>(null);
@@ -18,6 +19,8 @@ export default function ContactForm() {
     setSendButtonLoading(true);
     if (!token && captchaRef.current) {
       captchaRef.current.execute();
+      setNoTokenOccurred(true);
+      return;
     }
     if (nameRef.current && emailRef.current && messageRef.current) {
       const data = {
@@ -42,11 +45,6 @@ export default function ContactForm() {
       console.log;
     }
     setSendButtonLoading(false);
-  };
-  const onLoad = () => {
-    if (captchaRef.current) {
-      captchaRef.current.execute();
-    }
   };
 
   useEffect(() => {
@@ -128,6 +126,11 @@ export default function ContactForm() {
         {errorOccurred ? (
           <div className="text-center text-lg italic text-red-400">
             An Error Occurred, please try again / reload the page
+          </div>
+        ) : null}
+        {noTokenOccurred ? (
+          <div className="text-center text-lg italic text-red-400">
+            Unable to verify if human, please solve captcha.
           </div>
         ) : null}
       </form>
