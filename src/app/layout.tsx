@@ -8,7 +8,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en">
       <link rel="icon" href="/favicon.ico" sizes="any" />
       <title>Upper East Clinicians</title>
       <meta></meta>

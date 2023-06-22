@@ -8,7 +8,7 @@ export default function ContactForm() {
   return (
     <>
       <form onSubmit={sendContactEmail}>
-        <div className="flex flex-row justify-between">
+        <div className="flex flex-row justify-evenly">
           <div className="input-group mx-1">
             <input type="text" required className="bg-transparent" />
             <span className="bar"></span>

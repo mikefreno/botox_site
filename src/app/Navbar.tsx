@@ -99,12 +99,12 @@ const dropdown = (menuShowing: boolean) => {
           Navigation
         </div>
         <ul className="flex flex-col px-8 py-8 align-middle tracking-wide md:px-12">
-          <Link
+          <a
             href={"#contact"}
             className="hover-underline-animation mx-auto my-8 w-fit px-4 text-lg tracking-wider"
           >
             Contact Us
-          </Link>
+          </a>
           <Link
             href={"/pricing"}
             className="hover-underline-animation mx-auto my-8 w-fit px-4 text-lg tracking-wider"
@@ -112,7 +112,7 @@ const dropdown = (menuShowing: boolean) => {
             Pricing
           </Link>
           <Link
-            href={"/account"}
+            href={"/login"}
             className="hover-underline-animation mx-auto my-8 w-fit px-4 text-lg tracking-wider"
           >
             Login
