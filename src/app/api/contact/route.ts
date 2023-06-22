@@ -20,15 +20,14 @@ export async function POST(input: NextRequest) {
 
   const token_verify_url = "https://hcaptcha.com/siteverify";
 
+  console.log(token);
+
   const token_res = await fetch(token_verify_url, {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: new URLSearchParams({
-      response: token,
-      secret: env.HCAPTCHA_SECRET,
-    }),
+    body: `response=${token}&secret=${env.HCAPTCHA_SECRET}`,
   });
   const data = (await token_res.json()) as hcaptchaResponse;
 

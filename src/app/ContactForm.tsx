@@ -32,9 +32,11 @@ export default function ContactForm() {
         setSentAMessage(true);
       } else {
         setErrorOccurred(true);
+        console.log(status);
       }
     } else {
       setErrorOccurred(true);
+      console.log;
     }
     setSendButtonLoading(false);
   };
