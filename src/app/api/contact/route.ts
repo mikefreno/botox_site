@@ -27,7 +27,9 @@ export async function POST(input: NextRequest) {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: `response=${token}&secret=${env.HCAPTCHA_SECRET}`,
+    body: new URLSearchParams(
+      `response=${token}&secret=${env.HCAPTCHA_SECRET}`
+    ),
   });
   const data = (await token_res.json()) as hcaptchaResponse;
 

@@ -16,6 +16,9 @@ export default function ContactForm() {
   const sendContactEmail = async (e: React.FormEvent) => {
     e.preventDefault();
     setSendButtonLoading(true);
+    if (!token && captchaRef.current) {
+      captchaRef.current.execute();
+    }
     if (nameRef.current && emailRef.current && messageRef.current) {
       const data = {
         name: nameRef.current.value,
@@ -40,6 +43,17 @@ export default function ContactForm() {
     }
     setSendButtonLoading(false);
   };
+  const onLoad = () => {
+    if (captchaRef.current) {
+      captchaRef.current.execute();
+    }
+  };
+
+  useEffect(() => {
+    if (token) {
+      console.log(token);
+    }
+  }, [token]);
 
   return (
     <>
@@ -50,6 +64,7 @@ export default function ContactForm() {
           onVerify={setToken}
           ref={captchaRef}
           size="invisible"
+          onLoad={onLoad}
         />
         <div className="flex flex-row justify-evenly">
           <div className="input-group mx-1">
