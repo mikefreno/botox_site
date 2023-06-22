@@ -32,6 +32,7 @@ export const env = createEnv({
     EMAIL_SERVER_PASSWORD: z.string().min(1),
 
     EMAIL_FROM: z.string().min(1),
+    BREVO_KEY: z.string().min(1),
   },
 
   /**
@@ -63,6 +64,8 @@ export const env = createEnv({
     EMAIL_SERVER_PASSWORD: process.env.EMAIL_SERVER_PASSWORD,
 
     EMAIL_FROM: process.env.EMAIL_FROM,
+
+    BREVO_KEY: process.env.BREVO_KEY,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation.

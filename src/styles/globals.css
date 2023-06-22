@@ -9,10 +9,6 @@
   transition: all 0.5s ease;
   z-index: -1;
 }
-#LineAMobile,
-#LineBMobile {
-  transition: all 0.5s ease;
-}
 .LineA {
   transform: translate(20px, -14px) rotate(45deg);
 }
@@ -65,7 +61,7 @@
   height: 1.5px;
   bottom: 0;
   left: 0;
-  background-color: black;
+  background-color: #fdba74;
   transform-origin: bottom right;
   transition: transform 0.35s ease-out;
 }

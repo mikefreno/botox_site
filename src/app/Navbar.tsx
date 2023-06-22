@@ -81,19 +81,19 @@ export default function Navbar() {
             <MenuBars stroke={"#fb923c"} />
           </button>
         </div>
-        <nav ref={menuRef}>{dropdown(menuShowing)}</nav>
+        <nav ref={menuRef}>{menu(menuShowing)}</nav>
       </nav>
     </>
   );
 }
 
-const dropdown = (menuShowing: boolean) => {
+const menu = (menuShowing: boolean) => {
   return (
     <>
       <div
         className={`${
           menuShowing ? "navShadow right-0" : "-right-[100%]"
-        } fixed z-20 h-screen border-l-2 border-orange-200 bg-zinc-50 p-4 text-black transition-all duration-500 ease-in-out`}
+        } fixed z-20 h-screen border-l-2 border-orange-200 bg-zinc-800 p-4 text-white transition-all duration-500 ease-in-out`}
       >
         <div className="px-10 text-center text-3xl font-thin italic tracking-wider">
           Navigation
