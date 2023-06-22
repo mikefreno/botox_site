@@ -64,7 +64,6 @@ export default function ContactForm() {
           onVerify={setToken}
           ref={captchaRef}
           size="invisible"
-          onLoad={onLoad}
         />
         <div className="flex flex-row justify-evenly">
           <div className="input-group mx-1">
