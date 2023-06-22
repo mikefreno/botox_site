@@ -33,6 +33,7 @@ export const env = createEnv({
 
     EMAIL_FROM: z.string().min(1),
     BREVO_KEY: z.string().min(1),
+    HCAPTCHA_SECRET: z.string().min(1),
   },
 
   /**
@@ -51,6 +52,7 @@ export const env = createEnv({
   runtimeEnv: {
     DATABASE_URL: process.env.DATABASE_URL,
     NODE_ENV: process.env.NODE_ENV,
+
     NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
     GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
@@ -62,10 +64,11 @@ export const env = createEnv({
     EMAIL_SERVER_USER: process.env.EMAIL_SERVER_USER,
     EMAIL_SERVER_PORT: process.env.EMAIL_SERVER_PORT,
     EMAIL_SERVER_PASSWORD: process.env.EMAIL_SERVER_PASSWORD,
-
     EMAIL_FROM: process.env.EMAIL_FROM,
 
     BREVO_KEY: process.env.BREVO_KEY,
+
+    HCAPTCHA_SECRET: process.env.HCAPTCHA_SECRET,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation.

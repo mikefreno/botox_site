@@ -21,6 +21,7 @@ export default function ContactForm() {
         name: nameRef.current.value,
         email: emailRef.current.value,
         message: messageRef.current.value,
+        token: token,
       };
       const res = await fetch("/api/contact", {
         method: "POST",
