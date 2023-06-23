@@ -12,7 +12,10 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <link rel="icon" href="/favicon.ico" sizes="any" />
       <title>Upper East Clinicians</title>
-      <meta></meta>
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1 viewport-fit=cover"
+      />
       <body>
         <Navbar />
         {children}

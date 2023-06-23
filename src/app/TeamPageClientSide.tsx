@@ -1,35 +1,33 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import UserIcon from "~/icons/UserIcon";
 
 export default function TeamPageClientSide() {
   const [loadIn, setLoadIn] = useState<boolean>(false);
 
-  const [scrollHeight, setScrollHeight] = useState<number>(0);
+  const anchorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrollHeight(window.scrollY);
-    };
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // triggers when observer comes into view
+        if (entry) setLoadIn(entry.isIntersecting);
+      },
+      {
+        root: null, // observing intersections with respect to the viewport
+        threshold: 0.1, // callback will execute when 10% of the target is visible
+      }
+    );
 
-    window.addEventListener("scroll", onScroll);
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (scrollHeight >= 1400) {
-      setLoadIn(true);
-    } else {
-      setLoadIn(false);
+    if (anchorRef.current) {
+      observer.observe(anchorRef.current);
     }
-  }, [scrollHeight]);
+  }, []);
 
   return (
     <>
+      <div ref={anchorRef} className="absolute mt-[10vh] h-[100vh]" />
       <div
         className={`${
           loadIn ? "" : "translate-y-full"

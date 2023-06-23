@@ -47,7 +47,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed z-10 flex w-screen">
+      <nav className="fixed z-[100] flex w-screen">
         <div className={`mx-4 my-2 flex flex-1 py-2`}>
           <Link href={"/"} className="flex">
             {/* eslint-disable-next-line @next/next/no-img-element */}
