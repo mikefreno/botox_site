@@ -4,7 +4,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-export default function MissionPageContents() {
+export default function MissionSection() {
   const [firstLoad, setFirstLoad] = useState<boolean>(false);
   const [secondLoad, setSecondLoad] = useState<boolean>(false);
 
@@ -44,11 +44,9 @@ export default function MissionPageContents() {
 
   return (
     <>
-      <div
-        className="topShadow relative z-50 flex h-screen flex-col justify-evenly bg-zinc-50 px-4 md:px-12"
-        ref={anchorRefOne}
-      >
-        <div ref={anchorRefTwo} className="absolute mt-[30vh]"></div>
+      <div className="topShadow relative z-50 flex min-h-screen flex-col justify-evenly bg-zinc-50 px-4 md:px-12">
+        <div ref={anchorRefOne} className="absolute mt-[-10vh] h-[60vh]"></div>
+        <div ref={anchorRefTwo} className="absolute mt-[30vh] h-[60vh]"></div>
         <div className="flex justify-evenly">
           <div className="grid h-screen grid-flow-row grid-cols-3 gap-4">
             <div className="flex flex-col justify-evenly">

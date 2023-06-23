@@ -227,3 +227,6 @@ textarea:valid ~ label {
   border-top: 1px solid #ccc;
   margin: 0 10px;
 }
+.scroll-x-disabled {
+  overflow-x: hidden;
+}

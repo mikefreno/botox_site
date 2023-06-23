@@ -11,24 +11,30 @@ const raleway = Raleway({ subsets: ["latin"] });
 
 export default function Navbar() {
   const [menuShowing, setMenuShowing] = useState<boolean>(false);
-  const [scrollHeight, setScrollHeight] = useState<number>(0);
   const closeRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
+  const anchorRef = useRef<HTMLDivElement>(null);
+  const [atTop, setAtTop] = useState<boolean>(true);
 
   useOnClickOutside([menuRef, closeRef], () => {
     setMenuShowing(false);
   });
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrollHeight(window.scrollY);
-    };
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // triggers when observer comes into view
+        if (entry) setAtTop(entry.isIntersecting);
+      },
+      {
+        root: null, // observing intersections with respect to the viewport
+        threshold: 0.1, // callback will execute when 10% of the target is visible
+      }
+    );
 
-    window.addEventListener("scroll", onScroll);
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-    };
+    if (anchorRef.current) {
+      observer.observe(anchorRef.current);
+    }
   }, []);
 
   useEffect(() => {
@@ -47,6 +53,7 @@ export default function Navbar() {
 
   return (
     <>
+      <div ref={anchorRef} className="absolute h-10" />
       <nav className="fixed z-[100] flex w-screen">
         <div className={`mx-4 my-2 flex flex-1 py-2`}>
           <Link href={"/"} className="flex">
@@ -54,19 +61,19 @@ export default function Navbar() {
             <img
               src={"/Logos/Transparent - logo no bar.png"}
               alt="logo"
-              height={scrollHeight <= 100 ? 47 : 38}
-              width={scrollHeight <= 100 ? 52 : 42}
+              height={atTop ? 47 : 38}
+              width={atTop ? 52 : 42}
               className="transform transition-all duration-500 ease-in-out"
             />
             <div
               className={`${
-                scrollHeight <= 40 ? "fade-in" : "fade-out opacity-0"
+                atTop ? "fade-in" : "fade-out opacity-0"
               } mx-1 h-full border-r border-orange-500`}
             />
             <div
               className={`${raleway.className} ${
-                scrollHeight <= 40 ? "fade-in" : "fade-out opacity-0"
-              }  my-auto flex transform pl-2 text-3xl font-light tracking-widest text-orange-500 transition-all duration-500 ease-in-out`}
+                atTop ? "fade-in" : "fade-out opacity-0"
+              }  my-auto flex transform pl-2 text-xl font-light tracking-wide text-orange-500 transition-all duration-500 ease-in-out md:text-3xl md:tracking-widest`}
             >
               Upper East Clinicians
             </div>
@@ -77,7 +84,11 @@ export default function Navbar() {
             menuShowing ? "top-5 -mr-[6px]" : "top-4"
           } absolute right-4 z-50 transition-all duration-300 ease-in-out`}
         >
-          <button onClick={menuToggle} className={"z-50"} ref={closeRef}>
+          <button
+            onClick={menuToggle}
+            className={"z-50 my-auto"}
+            ref={closeRef}
+          >
             <MenuBars stroke={"#fb923c"} />
           </button>
         </div>
