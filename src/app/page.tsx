@@ -7,8 +7,8 @@ const raleway = Raleway({ subsets: ["latin"] });
 export default function RootPage() {
   return (
     <div className={`${raleway.className} z-10 mb-[100vh]`}>
-      <div className="relative z-50 h-screen overflow-hidden bg-zinc-50">
-        <div className="page-fade-in z-0 h-screen bg-[url('/Stock/man-getting-botox.jpg')] bg-cover bg-center bg-no-repeat">
+      <div className="relative z-50 overflow-hidden bg-zinc-50">
+        <div className="page-fade-in z-0 min-h-screen bg-[url('/Stock/man-getting-botox.jpg')] bg-cover bg-center bg-no-repeat">
           <div
             className={`text-shadow absolute left-0  top-1/3 z-10 w-full text-center text-4xl tracking-widest text-white`}
           >
@@ -18,7 +18,6 @@ export default function RootPage() {
         </div>
       </div>
       <MissionSection />
-      <TeamSection />
     </div>
   );
 }

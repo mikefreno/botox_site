@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <>
       <div
-        className="fixed bottom-0 z-10 flex h-screen w-screen flex-col justify-evenly overflow-hidden bg-zinc-50 bg-fixed px-4 text-black md:px-12"
+        className="bottom-0 z-10 flex h-screen w-screen flex-col justify-evenly overflow-hidden bg-zinc-50 bg-fixed px-4 text-black md:px-12"
         id="contact"
       >
         <div className="-mb-12 text-center text-3xl tracking-widest">

@@ -16,7 +16,7 @@ export default function RootLayout({
         name="viewport"
         content="width=device-width, initial-scale=1 viewport-fit=cover"
       />
-      <body className="max-w-screen scroll-x-disabled overflow-x-clip">
+      <body>
         <Navbar />
         {children}
         <Footer />
