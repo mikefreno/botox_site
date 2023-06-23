@@ -196,7 +196,7 @@ export default function BodySection() {
                 strokeWidth={1}
               />
             </div>
-            <p className="px-8 text-center text-black">
+            <p className="px-2 text-center text-black md:px-8">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis,
               necessitatibus.
             </p>
@@ -215,7 +215,7 @@ export default function BodySection() {
                 strokeWidth={1}
               />
             </div>
-            <p className="px-8 text-center text-black">
+            <p className="px-2 text-center text-black md:px-8">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi,
               tenetur neque. Natus.
             </p>
@@ -234,7 +234,7 @@ export default function BodySection() {
                 strokeWidth={1}
               />
             </div>
-            <p className="px-8 text-center text-black">
+            <p className="px-2 text-center text-black md:px-8">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </p>
           </div>
@@ -252,7 +252,7 @@ export default function BodySection() {
                 strokeWidth={1}
               />
             </div>
-            <p className="px-8 text-center text-black">
+            <p className="px-2 text-center text-black md:px-8">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea dolor
               accusantium magnam recusandae odit voluptatem.
             </p>
