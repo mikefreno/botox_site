@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 // import HCaptcha from "@hcaptcha/react-hcaptcha";
 
 export default function ContactForm() {
@@ -58,7 +58,7 @@ export default function ContactForm() {
           ref={captchaRef}
           size="invisible"
         /> */}
-        <div className="flex flex-row justify-evenly">
+        <div className="flex flex-col md:flex-row md:justify-evenly">
           <div className="input-group mx-1">
             <input
               ref={nameRef}

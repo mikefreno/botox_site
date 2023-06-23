@@ -53,37 +53,33 @@ export default function Navbar() {
 
   return (
     <>
-      <div ref={anchorRef} className="absolute h-10" />
-      <nav className="fixed z-[100] flex w-screen">
-        <div className={`mx-4 my-2 flex flex-1 py-2`}>
-          <Link href={"/"} className="flex">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={"/Logos/Transparent - logo no bar.png"}
-              alt="logo"
-              height={atTop ? 47 : 38}
-              width={atTop ? 52 : 42}
-              className="transform transition-all duration-500 ease-in-out"
-            />
-            <div
-              className={`${
-                atTop ? "fade-in" : "fade-out opacity-0"
-              } mx-1 h-full border-r border-orange-500`}
-            />
-            <div
-              className={`${raleway.className} ${
-                atTop ? "fade-in" : "fade-out opacity-0"
-              }  my-auto flex transform pl-2 text-xl font-light tracking-wide text-orange-500 transition-all duration-500 ease-in-out md:text-3xl md:tracking-widest`}
-            >
-              Upper East Clinicians
-            </div>
-          </Link>
-        </div>
-        <div
-          className={`${
-            menuShowing ? "top-5 -mr-[6px]" : "top-4"
-          } absolute right-4 z-50 transition-all duration-300 ease-in-out`}
-        >
+      <div ref={anchorRef} className="absolute" />
+      <div className="fixed z-[100]">
+        <div className="flex w-screen px-4">
+          <div className={` my-2 flex flex-1 py-2`}>
+            <Link href={"/"} className="flex">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={"/Logos/Transparent - logo no bar.png"}
+                alt="logo"
+                height={atTop ? 47 : 38}
+                width={atTop ? 52 : 42}
+                className="transform transition-all duration-500 ease-in-out"
+              />
+              <div
+                className={`${
+                  atTop ? "fade-in" : "fade-out opacity-0"
+                } mx-1 h-full border-r border-orange-500`}
+              />
+              <div
+                className={`${raleway.className} ${
+                  atTop ? "fade-in" : "fade-out opacity-0"
+                }  my-auto flex transform pl-2 text-xl font-light tracking-wide text-orange-500 transition-all duration-500 ease-in-out md:text-3xl md:tracking-widest`}
+              >
+                Upper East Clinicians
+              </div>
+            </Link>
+          </div>
           <button
             onClick={menuToggle}
             className={"z-50 my-auto"}
@@ -93,7 +89,7 @@ export default function Navbar() {
           </button>
         </div>
         <nav ref={menuRef}>{menu(menuShowing)}</nav>
-      </nav>
+      </div>
     </>
   );
 }
@@ -104,9 +100,9 @@ const menu = (menuShowing: boolean) => {
       <div
         className={`${
           menuShowing ? "navShadow right-0" : "-right-[100%]"
-        } fixed z-20 h-screen border-l-2 border-orange-200 bg-zinc-800 p-4 text-white transition-all duration-500 ease-in-out`}
+        } fixed top-0 z-20 h-screen border-l-2 border-orange-200 bg-zinc-800 p-4 text-white transition-all duration-500 ease-in-out`}
       >
-        <div className="px-10 text-center text-3xl font-thin italic tracking-wider">
+        <div className="px-10 pt-[6px] text-center text-3xl font-thin italic tracking-wider">
           Navigation
         </div>
         <ul className="flex flex-col px-8 py-8 align-middle tracking-wide md:px-12">
@@ -124,7 +120,7 @@ const menu = (menuShowing: boolean) => {
           </Link>
           <Link
             href={"/login"}
-            className="hover-underline-animation mx-auto my-8 w-fit px-4 text-lg tracking-wider"
+            className="hover-underline-animation mx-auto my-8 flex w-fit px-4 text-lg tracking-wider"
           >
             Login
           </Link>
