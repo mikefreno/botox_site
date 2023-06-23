@@ -8,6 +8,9 @@ export default function Footer() {
         className="fixed bottom-0 z-[-10] flex h-screen w-screen flex-col justify-evenly overflow-hidden bg-zinc-50 bg-fixed px-4 text-black md:px-12"
         id="contact"
       >
+        <div className="-mb-12 text-center text-3xl tracking-widest">
+          Contact Us
+        </div>
         <div className="flex w-full flex-row">
           <div className="flex w-1/4 flex-col justify-between">
             <div>
@@ -25,15 +28,14 @@ export default function Footer() {
           </div>
           <div className="h-full w-1 border-r border-black" />
           <div className="flex w-full flex-col">
-            <div className="text-center text-3xl">Contact Us</div>
             <Link
               href={"/booking"}
-              className="mx-auto my-8 w-fit rounded bg-green-400 px-8 py-6 text-xl text-white drop-shadow-xl transition-all duration-200 ease-in-out hover:bg-green-500 hover:shadow-inner active:scale-90"
+              className="mx-auto w-fit rounded bg-green-400 px-8 py-6 text-xl text-white drop-shadow-xl transition-all duration-200 ease-in-out hover:bg-green-500 hover:shadow-inner active:scale-90"
             >
               Book An Appointment
             </Link>
 
-            <div className="rule-around mx-16">or</div>
+            <div className="rule-around mx-16 my-12">or</div>
             <div className="mx-auto w-5/6 rounded-md px-8 py-4 shadow-2xl">
               <div className="text-2xl font-light">Send Us A Message</div>
               <ContactForm />

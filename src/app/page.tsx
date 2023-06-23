@@ -1,6 +1,7 @@
 import { Raleway } from "next/font/google";
 import UserIcon from "~/icons/UserIcon";
 import MissionPageContents from "./MissionSectionContents";
+import TeamPageClientSide from "./TeamPageClientSide";
 // import ContactForm from "./ContactForm";
 // import Link from "next/link";
 
@@ -15,7 +16,6 @@ export default function RootPage() {
             className={`text-shadow fixed left-0 top-1/3 z-[-20] w-full text-center text-4xl tracking-widest text-white`}
           >
             A Refined Botox Concierge Aesthetics Provider
-            <div className="py-8">Serving Manhattan&apos;s Upper East Side</div>
             <div className="py-8">Serving Manhattan&apos;s Upper East Side</div>
           </div>
         </div>
@@ -42,51 +42,8 @@ const TeamPage = () => {
       <div className="text-center text-5xl font-light tracking-wider text-black">
         Our Team
       </div>
-      <div className="flex flex-row justify-evenly pb-[20vh]">
-        <div>
-          <div className="flex justify-center">
-            {/* <Image src={""} alt={"team member 1"} height={100} width={60} /> */}
-            <UserIcon height={48} width={48} color={"white"} strokeWidth={1} />
-          </div>
-          <p className="px-8 text-center text-black">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias
-            eum voluptatum vitae illo quod assumenda, beatae quia tempora autem
-            sunt?
-          </p>
-        </div>
-        <div>
-          <div className="flex justify-center">
-            {/* <Image src={""} alt={"team member 2"} height={100} width={60} /> */}
-            <UserIcon height={48} width={48} color={"white"} strokeWidth={1} />
-          </div>
-          <p className="px-8 text-center text-black">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias
-            fugiat accusantium sint quisquam beatae blanditiis vero dolorem
-            suscipit facilis voluptates?
-          </p>
-        </div>
-        <div>
-          <div className="flex justify-center">
-            {/* <Image src={""} alt={"team member 3"} height={100} width={60} /> */}
-            <UserIcon height={48} width={48} color={"white"} strokeWidth={1} />
-          </div>
-          <p className="px-8 text-center text-black">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque esse
-            aliquam mollitia voluptates voluptatibus accusamus suscipit
-            perferendis eius quisquam labore.
-          </p>
-        </div>
-        <div>
-          <div className="flex justify-center">
-            {/* <Image src={""} alt={"team member 4"} height={100} width={60} /> */}
-            <UserIcon height={48} width={48} color={"white"} strokeWidth={1} />
-          </div>
-          <p className="px-8 text-center text-black">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui
-            numquam rerum amet magnam vitae, officia obcaecati enim temporibus
-            explicabo iste.
-          </p>
-        </div>
+      <div className="flex flex-row justify-evenly pb-[30vh]">
+        <TeamPageClientSide />
       </div>
     </div>
   );
