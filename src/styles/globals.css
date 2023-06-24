@@ -227,6 +227,22 @@ textarea:valid ~ label {
   border-top: 1px solid #ccc;
   margin: 0 10px;
 }
+
+.vertical-rule-around {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.vertical-rule-around:before,
+.vertical-rule-around:after {
+  content: "";
+  flex: 1;
+  border-left: 1px solid #fb923c;
+  margin: 10px 0;
+}
+
 .scroll-x-disabled {
   overflow-x: hidden;
 }

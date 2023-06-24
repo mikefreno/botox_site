@@ -1,13 +1,10 @@
-import { Raleway } from "next/font/google";
 import MissionSection from "./BodySection";
 import Footer from "./Footer";
-
-const raleway = Raleway({ subsets: ["latin"] });
 
 export default function RootPage() {
   return (
     <>
-      <div className={`${raleway.className} z-10 mb-[100vh]`}>
+      <div className={` z-10 mb-[100vh]`}>
         <div className="relative z-50 overflow-hidden bg-zinc-50">
           <div className="page-fade-in z-20 h-screen w-screen bg-[url('/Stock/man-getting-botox.jpg')] bg-cover bg-fixed bg-center bg-no-repeat">
             <div

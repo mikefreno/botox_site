@@ -80,7 +80,7 @@ export default function ContactForm() {
             ref={messageRef}
             required
             className="w-full bg-transparent"
-          ></textarea>
+          />
           <span className="bar"></span>
           <label>Your Question, Concern, Comment</label>
         </div>

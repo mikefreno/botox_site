@@ -53,7 +53,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div ref={anchorRef} className="absolute" />
+      <div ref={anchorRef} className="absolute h-24" />
       <div className="fixed z-[100]">
         <div className="flex w-screen px-4">
           <div className={` my-2 flex flex-1 py-2`}>

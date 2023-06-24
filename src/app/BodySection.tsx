@@ -94,7 +94,7 @@ export default function BodySection() {
               className={`${
                 firstLoad
                   ? "fade-in-long"
-                  : "fade-out translate-y-full opacity-0"
+                  : "fade-out translate-x-full translate-y-full opacity-0"
               } z-0 transition-all duration-1000 ease-in-out`}
             />
 
@@ -119,7 +119,7 @@ export default function BodySection() {
               className={`${
                 firstLoad
                   ? "fade-in-long"
-                  : "fade-out -translate-y-full opacity-0"
+                  : "fade-out -translate-x-full translate-y-full opacity-0"
               } z-0 transition-all duration-1000 ease-in-out`}
             />
             <Image
@@ -163,7 +163,7 @@ export default function BodySection() {
               className={`${
                 secondLoad
                   ? "fade-in-long"
-                  : "fade-out translate-y-full opacity-0"
+                  : "fade-out translate-x-full translate-y-full opacity-0"
               } transition-all duration-1000 ease-in-out`}
             />
           </div>
