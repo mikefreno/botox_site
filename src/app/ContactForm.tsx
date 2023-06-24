@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 
 export default function ContactForm() {
@@ -12,7 +12,7 @@ export default function ContactForm() {
   const [sentAMessage, setSentAMessage] = useState<boolean>(false);
   const [errorOccurred, setErrorOccurred] = useState<boolean>(false);
   const [noTokenOccurred, setNoTokenOccurred] = useState<boolean>(false);
-  const [token, setToken] = useState<string>("");
+  const [token, setToken] = useState<string | null>(null);
   const captchaRef = useRef<HCaptcha>(null);
 
   const sendContactEmail = async (e: React.FormEvent) => {
@@ -29,7 +29,7 @@ export default function ContactForm() {
         name: nameRef.current.value,
         email: emailRef.current.value,
         message: messageRef.current.value,
-        // token: token,
+        token: token,
       };
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -41,10 +41,11 @@ export default function ContactForm() {
       } else {
         setErrorOccurred(true);
         console.log(status);
+        setToken(null);
       }
     } else {
       setErrorOccurred(true);
-      console.log;
+      setToken(null);
     }
     setSendButtonLoading(false);
   };
