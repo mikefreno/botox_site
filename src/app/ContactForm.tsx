@@ -61,7 +61,7 @@ export default function ContactForm() {
               className="bg-transparent"
             />
             <span className="bar"></span>
-            <label>Name</label>
+            <label>Your Name</label>
           </div>
           <div className="input-group mx-1">
             <input
@@ -71,7 +71,7 @@ export default function ContactForm() {
               className="bg-transparent"
             />
             <span className="bar"></span>
-            <label>Email</label>
+            <label>Your Email</label>
           </div>
         </div>
         <div className="textarea-group w-full">
@@ -81,7 +81,7 @@ export default function ContactForm() {
             className="w-full bg-transparent"
           ></textarea>
           <span className="bar"></span>
-          <label>Message</label>
+          <label>Your Question, Concern, Comment</label>
         </div>
         <div className="-mb-4 mt-6">
           <HCaptcha
