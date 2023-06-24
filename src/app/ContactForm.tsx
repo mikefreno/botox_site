@@ -48,17 +48,6 @@ export default function ContactForm() {
     }
     setSendButtonLoading(false);
   };
-
-  useEffect(() => {
-    if (verifyCheckRef.current) {
-      if (verifyCheckRef.current.checked) {
-        if (!token && captchaRef.current) {
-          captchaRef.current.execute();
-        }
-      }
-    }
-  }, [verifyCheckRef.current?.checked, token]);
-
   return (
     <>
       {/*  eslint-disable-next-line @typescript-eslint/no-misused-promises */}
@@ -95,7 +84,17 @@ export default function ContactForm() {
           <label>Your Question, Concern, Comment</label>
         </div>
         <div className="mt-4 flex">
-          <input type="checkbox" className="my-auto" ref={verifyCheckRef} />
+          <input
+            type="checkbox"
+            required
+            className="my-auto"
+            ref={verifyCheckRef}
+            onChange={() => {
+              if (!token) {
+                captchaRef.current?.execute();
+              }
+            }}
+          />
           <div className="my-auto px-2 text-sm font-normal">
             Verify you&apos;re human
           </div>
