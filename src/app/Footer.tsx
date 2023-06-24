@@ -9,7 +9,7 @@ export default function Footer() {
           Contact Us
         </div>
         <div
-          className="flex h-3/4 w-full flex-col overflow-scroll bg-orange-50 shadow-inner"
+          className="flex h-3/4 w-full flex-col overflow-scroll rounded-md bg-orange-50 shadow-inner"
           id="contact"
         >
           <div className="flex h-2/3 flex-col justify-evenly">
