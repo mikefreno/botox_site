@@ -38,7 +38,7 @@ export default function Footer() {
           </div>
           <div className="flex h-1/3 w-full flex-col">
             <div className="rule-around mx-16 -mt-4 mb-4">or</div>
-            <div className="pb-8 text-center text-2xl">Reach out!</div>
+            <div className="pb-8 text-center text-2xl">General Inquiry</div>
             <div className="mx-auto w-11/12 rounded-md bg-zinc-50 px-4 py-2 shadow-2xl md:w-2/3 md:px-8 md:py-4">
               <div className="text-2xl font-light">
                 Send Us A Message
