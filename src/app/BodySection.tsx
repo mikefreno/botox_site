@@ -128,7 +128,9 @@ export default function BodySection() {
               height={320}
               width={320}
               className={`${
-                secondLoad ? "fade-in-long" : "fade-out opacity-0"
+                secondLoad
+                  ? "fade-in-long"
+                  : "fade-out translate-y-full opacity-0"
               } z-0 transition-all duration-1000 ease-in-out`}
             />
             <Image
