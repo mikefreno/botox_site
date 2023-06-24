@@ -1,12 +1,13 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 
 export default function ContactForm() {
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const messageRef = useRef<HTMLTextAreaElement>(null);
+  const verifyCheckRef = useRef<HTMLInputElement>(null);
   const [sendButtonLoading, setSendButtonLoading] = useState<boolean>(false);
   const [sentAMessage, setSentAMessage] = useState<boolean>(false);
   const [errorOccurred, setErrorOccurred] = useState<boolean>(false);
@@ -48,6 +49,16 @@ export default function ContactForm() {
     setSendButtonLoading(false);
   };
 
+  useEffect(() => {
+    if (verifyCheckRef.current) {
+      if (verifyCheckRef.current.checked) {
+        if (!token && captchaRef.current) {
+          captchaRef.current.execute();
+        }
+      }
+    }
+  }, [verifyCheckRef.current?.checked, token]);
+
   return (
     <>
       {/*  eslint-disable-next-line @typescript-eslint/no-misused-promises */}
@@ -83,14 +94,18 @@ export default function ContactForm() {
           <span className="bar"></span>
           <label>Your Question, Concern, Comment</label>
         </div>
-        <div className="-mb-4 mt-6">
-          <HCaptcha
-            sitekey="69ac499a-3b0e-499a-84db-cb22e11aad4b"
-            onVerify={setToken}
-            ref={captchaRef}
-            size="normal"
-          />
+        <div className="mt-4 flex">
+          <input type="checkbox" className="my-auto" ref={verifyCheckRef} />
+          <div className="my-auto px-2 text-sm font-normal">
+            Verify you&apos;re human
+          </div>
         </div>
+        <HCaptcha
+          sitekey="69ac499a-3b0e-499a-84db-cb22e11aad4b"
+          onVerify={setToken}
+          ref={captchaRef}
+          size="invisible"
+        />
         <div className="flex justify-end">
           {sentAMessage ? (
             <button

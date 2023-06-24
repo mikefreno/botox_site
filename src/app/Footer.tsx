@@ -4,9 +4,9 @@ import ContactForm from "./ContactForm";
 export default function Footer() {
   return (
     <>
-      <div className="fixed top-0 z-0 flex h-screen w-screen flex-col justify-evenly bg-zinc-50 bg-fixed px-4 text-black md:px-12">
-        <div className="pt-8 text-center text-3xl tracking-widest">
-          Contact Us
+      <div className="fixed top-0 z-0 flex h-screen w-screen flex-col bg-zinc-50 bg-fixed px-4 text-black md:px-12">
+        <div className="pb-16 pt-24 text-center text-3xl tracking-widest md:pb-28 md:pt-36">
+          Get in Touch
         </div>
         <div
           className="flex h-3/4 w-full flex-col overflow-scroll rounded-md bg-orange-50 shadow-inner"
@@ -39,18 +39,18 @@ export default function Footer() {
           <div className="flex h-1/3 w-full flex-col">
             <div className="rule-around mx-16 -mt-4 mb-4">or</div>
             <div className="pb-8 text-center text-2xl">Reach out!</div>
-            <div className="mx-auto w-full rounded-md bg-zinc-50 px-8 py-4 shadow-2xl md:w-2/3">
+            <div className="mx-auto w-11/12 rounded-md bg-zinc-50 px-4 py-2 shadow-2xl md:w-2/3 md:px-8 md:py-4">
               <div className="text-2xl font-light">
                 Send Us A Message
                 <ContactForm />
               </div>
             </div>
-            <div className="flex flex-row justify-between pt-6 md:flex-col">
-              <div className="text- flex w-full flex-col justify-between md:flex-row md:justify-evenly">
+            <div className="flex flex-row justify-between px-2 py-6 md:flex-col">
+              <div className="flex w-full flex-col justify-between md:flex-row md:justify-evenly">
                 <div>
                   UPPER EAST CLINICIANS <br /> BOTOX CONCIERGE
                 </div>
-                <div className="font-bold text-orange-500 ">
+                <div className="font-bold text-orange-500">
                   NEW YORK CITY <br />
                   123 3RD AVE
                 </div>
