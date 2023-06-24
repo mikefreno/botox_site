@@ -89,7 +89,8 @@ export default function ContactForm() {
             required
             className="my-auto"
             ref={verifyCheckRef}
-            onChange={() => {
+            checked={token ? true : false}
+            onClick={() => {
               if (!token) {
                 captchaRef.current?.execute();
               }
