@@ -1,13 +1,17 @@
 import Link from "next/link";
+import ContactForm from "./ContactForm";
 
 export default function Footer() {
   return (
     <>
       <div className="fixed top-0 z-0 flex h-screen w-screen flex-col justify-evenly bg-zinc-50 bg-fixed px-4 text-black md:px-12">
-        <div className="-mb-16 text-center text-3xl tracking-widest">
+        <div className=" pt-6 text-center text-3xl tracking-widest">
           Contact Us
         </div>
-        <div className="flex w-full flex-col" id="contact">
+        <div
+          className="flex h-3/4 w-full flex-col overflow-scroll shadow-inner"
+          id="contact"
+        >
           <div className="flex h-2/3 flex-col justify-evenly">
             <Link
               href={"/booking"}
@@ -33,7 +37,19 @@ export default function Footer() {
           <div className="flex h-1/3 w-full flex-col">
             <div className="rule-around mx-16 -mt-4 mb-4">or</div>
             <div className="pb-8 text-center text-2xl">Reach out!</div>
-            <div className="flex h-[15vh] flex-row justify-between md:flex-col">
+            <div className="mx-auto w-full rounded-md px-8 py-4 shadow-2xl md:w-2/3">
+              <div className="text-2xl font-light">
+                Send Us A Message
+                <ContactForm />
+              </div>
+            </div>
+            {/* <Link
+              href={"/contact"}
+              className="mx-auto my-4 h-fit w-fit rounded-lg bg-orange-400 px-4 py-2 text-lg text-white drop-shadow-xl transition-all duration-200 ease-in-out hover:bg-orange-500 hover:shadow-inner active:scale-90"
+            >
+              Send us a message!
+            </Link> */}
+            <div className="flex flex-row justify-between pt-6 md:flex-col">
               <div className="text- flex w-full flex-col justify-between md:flex-row md:justify-evenly">
                 <div>
                   UPPER EAST CLINICIANS <br /> BOTOX CONCIERGE
@@ -53,11 +69,4 @@ export default function Footer() {
       </div>
     </>
   );
-}
-//contact form
-{
-  /* <div className="mx-auto w-full rounded-md px-8 py-4 shadow-2xl md:w-5/6">
-<div className="text-2xl font-light">Send Us A Message</div>
-<ContactForm />
-</div> */
 }
