@@ -176,7 +176,11 @@ export default function BodySection() {
         <div
           ref={anchorRefThree}
           className="absolute mt-[50vh]"
-          style={{ height: fullDivRef.current?.offsetHeight }}
+          style={{
+            height: fullDivRef.current?.offsetHeight
+              ? fullDivRef.current?.offsetHeight * 1.2
+              : "100vh",
+          }}
         />
         <div className="pb-16 pt-8 text-center text-5xl font-light tracking-wider text-black md:pb-52 md:pt-36">
           Our Team
