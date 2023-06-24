@@ -45,7 +45,7 @@ export default function Footer() {
               </div>
               <div className="mt-8 text-center font-semibold">
                 <div className="text-orange-500">(123)-456-7890</div>
-                <div>johndoe@gmail.com</div>
+                <div>johndoe@example.com</div>
               </div>
             </div>
           </div>
