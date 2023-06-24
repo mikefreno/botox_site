@@ -1,35 +1,35 @@
 "use client";
 
 import { useRef, useState } from "react";
-import HCaptcha from "@hcaptcha/react-hcaptcha";
+// import HCaptcha from "@hcaptcha/react-hcaptcha";
 
 export default function ContactForm() {
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const messageRef = useRef<HTMLTextAreaElement>(null);
-  const verifyCheckRef = useRef<HTMLInputElement>(null);
   const [sendButtonLoading, setSendButtonLoading] = useState<boolean>(false);
   const [sentAMessage, setSentAMessage] = useState<boolean>(false);
   const [errorOccurred, setErrorOccurred] = useState<boolean>(false);
-  const [noTokenOccurred, setNoTokenOccurred] = useState<boolean>(false);
-  const [token, setToken] = useState<string | null>(null);
-  const captchaRef = useRef<HCaptcha>(null);
+  // const verifyCheckRef = useRef<HTMLInputElement>(null);
+  // const [noTokenOccurred, setNoTokenOccurred] = useState<boolean>(false);
+  // const [token, setToken] = useState<string | null>(null);
+  // const captchaRef = useRef<HCaptcha>(null);
 
   const sendContactEmail = async (e: React.FormEvent) => {
     e.preventDefault();
     setSendButtonLoading(true);
-    if (!token && captchaRef.current) {
-      captchaRef.current.execute();
-      setNoTokenOccurred(true);
-      setSendButtonLoading(false);
-      return;
-    }
+    // if (!token && captchaRef.current) {
+    //   captchaRef.current.execute();
+    //   setNoTokenOccurred(true);
+    //   setSendButtonLoading(false);
+    //   return;
+    // }
     if (nameRef.current && emailRef.current && messageRef.current) {
       const data = {
         name: nameRef.current.value,
         email: emailRef.current.value,
         message: messageRef.current.value,
-        token: token,
+        // token: token,
       };
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -41,11 +41,11 @@ export default function ContactForm() {
       } else {
         setErrorOccurred(true);
         console.log(status);
-        setToken(null);
+        // setToken(null);
       }
     } else {
       setErrorOccurred(true);
-      setToken(null);
+      // setToken(null);
     }
     setSendButtonLoading(false);
   };
@@ -84,7 +84,7 @@ export default function ContactForm() {
           <span className="bar"></span>
           <label>Your Question, Concern, Comment</label>
         </div>
-        <div className="mt-4 flex">
+        {/* <div className="mt-4 flex">
           <input
             type="checkbox"
             required
@@ -96,6 +96,7 @@ export default function ContactForm() {
                 captchaRef.current?.execute();
               }
             }}
+            readOnly
           />
           <div className="my-auto px-2 text-sm font-normal">
             Verify you&apos;re human
@@ -106,7 +107,7 @@ export default function ContactForm() {
           onVerify={setToken}
           ref={captchaRef}
           size="invisible"
-        />
+        /> */}
         <div className="flex justify-end">
           {sentAMessage ? (
             <button
@@ -141,11 +142,11 @@ export default function ContactForm() {
             An Error Occurred, please try again / reload the page
           </div>
         ) : null}
-        {noTokenOccurred ? (
+        {/* {noTokenOccurred ? (
           <div className="text-center text-lg italic text-red-400">
             Unable to verify if human, please solve captcha.
           </div>
-        ) : null}
+        ) : null} */}
       </form>
     </>
   );

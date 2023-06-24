@@ -76,7 +76,7 @@ export default function BodySection() {
             <div className="flex justify-center">
               <Link
                 href={"/testimonials"}
-                className="drawn-border text-shadow my-auto w-fit rounded-md px-6 py-2 text-xl text-white underline underline-offset-4 md:text-3xl"
+                className="drawn-border text-shadow my-auto w-fit px-6 py-2 text-xl text-white underline underline-offset-4 md:text-3xl"
               >
                 <div className="text-center text-lg">See:</div>
                 Testimonials

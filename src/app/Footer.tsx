@@ -9,7 +9,7 @@ export default function Footer() {
           Get in Touch
         </div>
         <div
-          className="flex h-3/4 w-full flex-col overflow-scroll rounded-md bg-orange-50 shadow-inner"
+          className="mb-6 flex h-3/4 w-full flex-col overflow-scroll rounded-md bg-orange-50 shadow-inner"
           id="contact"
         >
           <div className="flex h-2/3 flex-col justify-evenly">
@@ -22,14 +22,14 @@ export default function Footer() {
             <div className="flex flex-row justify-evenly px-12 pt-8">
               <Link
                 href={"/testimonials"}
-                className="drawn-border my-auto w-fit rounded-md px-6 py-2 text-lg text-black underline underline-offset-4 md:text-3xl"
+                className="drawn-border my-auto w-fit px-6 py-2 text-lg text-black underline underline-offset-4 md:text-3xl"
               >
                 <div className="text-center text-sm">See:</div>
                 Testimonials
               </Link>
               <Link
                 href={"/pricing"}
-                className="drawn-border my-auto w-fit rounded-md px-6 py-2 text-lg text-black underline underline-offset-4 md:text-3xl"
+                className="drawn-border my-auto w-fit px-6 py-2 text-lg text-black underline underline-offset-4 md:text-3xl"
               >
                 <div className="text-center text-sm">See:</div>
                 Pricing
