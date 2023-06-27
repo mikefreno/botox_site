@@ -8,10 +8,7 @@ export default function Footer() {
         <div className="pb-16 pt-24 text-center text-3xl tracking-widest md:pb-28 md:pt-36">
           Get in Touch
         </div>
-        <div
-          className="mb-6 flex h-3/4 w-full flex-col overflow-scroll rounded-md bg-orange-50 shadow-inner"
-          id="contact"
-        >
+        <div className="mb-6 flex h-3/4 w-full flex-col overflow-scroll rounded-md bg-orange-50 shadow-inner">
           <div className="flex h-2/3 flex-col justify-evenly">
             <Link
               href={"/booking"}
@@ -62,6 +59,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
+        <div id="contact" className="absolute pt-96" />
       </div>
     </>
   );
