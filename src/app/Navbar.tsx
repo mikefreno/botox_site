@@ -107,7 +107,7 @@ const menu = (menuShowing: boolean) => {
         </div>
         <ul className="flex flex-col px-8 py-8 align-middle tracking-wide md:px-12">
           <a
-            href={"#contact"}
+            href={"/#contact"}
             className="hover-underline-animation mx-auto my-8 w-fit px-4 text-lg tracking-wider"
           >
             Contact Us
