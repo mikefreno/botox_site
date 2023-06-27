@@ -6,6 +6,7 @@ import MenuBars from "~/icons/MenuBars";
 import useOnClickOutside from "../components/ClickOutsideHook";
 import { Raleway } from "next/font/google";
 import { FaceBookIcon, InstagramIcon, TicTocIcon } from "~/icons/BrandIcons";
+import { usePathname } from "next/navigation";
 
 const raleway = Raleway({ subsets: ["latin"] });
 
@@ -15,6 +16,7 @@ export default function Navbar() {
   const menuRef = useRef<HTMLDivElement>(null);
   const anchorRef = useRef<HTMLDivElement>(null);
   const [atTop, setAtTop] = useState<boolean>(true);
+  const pathname = usePathname();
 
   useOnClickOutside([menuRef, closeRef], () => {
     setMenuShowing(false);
@@ -82,19 +84,19 @@ export default function Navbar() {
           </div>
           <button
             onClick={menuToggle}
-            className={"z-50 my-auto"}
+            className={"fixed right-4 top-6 z-50 my-auto"}
             ref={closeRef}
           >
             <MenuBars stroke={"#fb923c"} />
           </button>
         </div>
-        <nav ref={menuRef}>{menu(menuShowing)}</nav>
+        <nav ref={menuRef}>{menu(menuShowing, pathname)}</nav>
       </div>
     </>
   );
 }
 
-const menu = (menuShowing: boolean) => {
+const menu = (menuShowing: boolean, pathname: string | null) => {
   return (
     <>
       <div
@@ -107,7 +109,7 @@ const menu = (menuShowing: boolean) => {
         </div>
         <ul className="flex flex-col px-8 py-8 align-middle tracking-wide md:px-12">
           <a
-            href={"/#contact"}
+            href={pathname == "/" ? "#contact" : "/contact"}
             className="hover-underline-animation mx-auto my-8 w-fit px-4 text-lg tracking-wider"
           >
             Contact Us
