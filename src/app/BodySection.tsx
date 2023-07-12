@@ -19,54 +19,60 @@ export default function BodySection() {
   const anchorRefThree = useRef<HTMLDivElement>(null);
   const fullDivRef = useRef<HTMLDivElement>(null);
 
-  const debouncedCallbackOne = useDebouncedCallback((entry) => {
-    if (entry && entry[0]) setFirstLoad(entry[0].isIntersecting);
-  }, 100);
-
-  const debouncedCallbackTwo = useDebouncedCallback((entry) => {
-    if (entry && entry[0]) setSecondLoad(entry[0].isIntersecting);
-  }, 100);
-
-  const debouncedCallbackThree = useDebouncedCallback((entry) => {
-    if (entry && entry[0]) setLoadIn(entry[0].isIntersecting);
-  }, 100);
-
   useEffect(() => {
-    const observerOne = new IntersectionObserver(debouncedCallbackOne, {
-      root: null,
-      threshold: 0.1,
-    });
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // triggers when observer comes into view
+        if (entry && entry.isIntersecting !== firstLoad)
+          setFirstLoad(entry.isIntersecting);
+      },
+      {
+        root: null, // observing intersections with respect to the viewport
+        threshold: 0.1, // callback will execute when 10% of the target is visible
+      }
+    );
 
-    const observerTwo = new IntersectionObserver(debouncedCallbackTwo, {
-      root: null,
-      threshold: 0.1,
-    });
+    const observerTwo = new IntersectionObserver(
+      ([entry]) => {
+        // triggers when observer comes into view
+        if (entry && entry.isIntersecting !== secondLoad)
+          setSecondLoad(entry.isIntersecting);
+      },
+      {
+        root: null, // observing intersections with respect to the viewport
+        threshold: 0.1, // callback will execute when 10% of the target is visible
+      }
+    );
 
-    const observerThree = new IntersectionObserver(debouncedCallbackThree, {
-      root: null,
-      threshold: 0.1,
-    });
+    const observerThree = new IntersectionObserver(
+      ([entry]) => {
+        // triggers when observer comes into view
+        if (entry && entry.isIntersecting !== loadIn)
+          setLoadIn(entry.isIntersecting);
+      },
+      {
+        root: null, // observing intersections with respect to the viewport
+        threshold: 0.1, // callback will execute when 10% of the target is visible
+      }
+    );
 
     if (anchorRefOne.current) {
-      observerOne.observe(anchorRefOne.current);
+      observer.observe(anchorRefOne.current);
     }
-
     if (anchorRefTwo.current) {
       observerTwo.observe(anchorRefTwo.current);
     }
-
     if (anchorRefThree.current) {
       observerThree.observe(anchorRefThree.current);
     }
 
     return () => {
-      if (anchorRefOne.current) observerOne.unobserve(anchorRefOne.current);
+      if (anchorRefOne.current) observer.unobserve(anchorRefOne.current);
       if (anchorRefTwo.current) observerTwo.unobserve(anchorRefTwo.current);
       if (anchorRefThree.current)
         observerThree.unobserve(anchorRefThree.current);
     };
-  }, [debouncedCallbackOne, debouncedCallbackTwo, debouncedCallbackThree]);
-
+  }, [firstLoad, secondLoad, loadIn]);
   return (
     <>
       <div className="max-w-[100vw]">
@@ -76,7 +82,7 @@ export default function BodySection() {
             className="absolute mt-[-10vh] h-[30vh]"
           ></div>
           <div ref={anchorRefTwo} className="absolute mt-[45vh] h-[60vh]"></div>
-          <div className="absolute z-50 flex h-screen w-screen justify-center">
+          <div className="absolute z-50 flex h-[100dvh] w-screen justify-center">
             <div className="flex flex-col justify-evenly">
               <div className="text-shadow flex justify-center text-center text-2xl text-white md:text-4xl">
                 An uncompromising experience
@@ -180,7 +186,7 @@ export default function BodySection() {
           </div>
         </div>
         <div
-          className="relative z-50 flex h-screen w-screen flex-col bg-orange-200 px-4 align-middle md:px-12"
+          className="relative z-50 flex h-[100dvh] w-screen flex-col bg-orange-200 px-4 align-middle md:px-12"
           ref={fullDivRef}
         >
           <div
@@ -276,24 +282,4 @@ export default function BodySection() {
       </div>
     </>
   );
-}
-
-function useDebouncedCallback(
-  callback: (entry: IntersectionObserverEntry[]) => void,
-  wait: number
-): (entry: IntersectionObserverEntry[]) => void {
-  const entryRef = useRef<IntersectionObserverEntry[]>();
-  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
-
-  function debounce(entry: IntersectionObserverEntry[]) {
-    entryRef.current = entry;
-    clearTimeout(timeoutRef.current);
-    timeoutRef.current = setTimeout(() => {
-      if (entryRef.current) {
-        callback(entryRef.current);
-      }
-    }, wait);
-  }
-
-  return debounce;
 }
