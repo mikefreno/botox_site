@@ -62,7 +62,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="flex h-screen flex-row justify-evenly">
+    <div className="flex h-[100dvh] flex-row justify-evenly">
       <div className="hidden md:flex">
         <div className="vertical-rule-around z-0 my-36 -ml-16 flex justify-center">
           <div className="-mr-10 flex flex-row">
