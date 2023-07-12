@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
@@ -18,42 +19,38 @@ export default function BodySection() {
   const anchorRefThree = useRef<HTMLDivElement>(null);
   const fullDivRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // triggers when observer comes into view
-        if (entry) setFirstLoad(entry.isIntersecting);
-      },
-      {
-        root: null, // observing intersections with respect to the viewport
-        threshold: 0.1, // callback will execute when 10% of the target is visible
-      }
-    );
-    const observerTwo = new IntersectionObserver(
-      ([entry]) => {
-        // triggers when observer comes into view
+  const debouncedCallbackOne = useDebouncedCallback((entry) => {
+    if (entry && entry[0]) setFirstLoad(entry[0].isIntersecting);
+  }, 100);
 
-        if (entry) setSecondLoad(entry.isIntersecting);
-      },
-      {
-        root: null, // observing intersections with respect to the viewport
-        threshold: 0.1, // callback will execute when 10% of the target is visible
-      }
-    );
-    const observerThree = new IntersectionObserver(
-      ([entry]) => {
-        // triggers when observer comes into view
-        if (entry) setLoadIn(entry.isIntersecting);
-      },
-      {
-        root: null, // observing intersections with respect to the viewport
-        threshold: 0.1, // callback will execute when 10% of the target is visible
-      }
-    );
+  const debouncedCallbackTwo = useDebouncedCallback((entry) => {
+    if (entry && entry[0]) setSecondLoad(entry[0].isIntersecting);
+  }, 100);
+
+  const debouncedCallbackThree = useDebouncedCallback((entry) => {
+    if (entry && entry[0]) setLoadIn(entry[0].isIntersecting);
+  }, 100);
+
+  useEffect(() => {
+    const observerOne = new IntersectionObserver(debouncedCallbackOne, {
+      root: null,
+      threshold: 0.1,
+    });
+
+    const observerTwo = new IntersectionObserver(debouncedCallbackTwo, {
+      root: null,
+      threshold: 0.1,
+    });
+
+    const observerThree = new IntersectionObserver(debouncedCallbackThree, {
+      root: null,
+      threshold: 0.1,
+    });
 
     if (anchorRefOne.current) {
-      observer.observe(anchorRefOne.current);
+      observerOne.observe(anchorRefOne.current);
     }
+
     if (anchorRefTwo.current) {
       observerTwo.observe(anchorRefTwo.current);
     }
@@ -61,7 +58,14 @@ export default function BodySection() {
     if (anchorRefThree.current) {
       observerThree.observe(anchorRefThree.current);
     }
-  }, []);
+
+    return () => {
+      if (anchorRefOne.current) observerOne.unobserve(anchorRefOne.current);
+      if (anchorRefTwo.current) observerTwo.unobserve(anchorRefTwo.current);
+      if (anchorRefThree.current)
+        observerThree.unobserve(anchorRefThree.current);
+    };
+  }, [debouncedCallbackOne, debouncedCallbackTwo, debouncedCallbackThree]);
 
   return (
     <>
@@ -272,4 +276,24 @@ export default function BodySection() {
       </div>
     </>
   );
+}
+
+function useDebouncedCallback(
+  callback: (entry: IntersectionObserverEntry[]) => void,
+  wait: number
+): (entry: IntersectionObserverEntry[]) => void {
+  const entryRef = useRef<IntersectionObserverEntry[]>();
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
+
+  function debounce(entry: IntersectionObserverEntry[]) {
+    entryRef.current = entry;
+    clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(() => {
+      if (entryRef.current) {
+        callback(entryRef.current);
+      }
+    }, wait);
+  }
+
+  return debounce;
 }
