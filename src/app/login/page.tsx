@@ -78,10 +78,10 @@ export default function LoginPage() {
           </div>
         </div>
       </div>
-      <div className="my-auto flex h-3/4 flex-col justify-evenly">
-        <div className="-mb-12 pl-2 text-2xl">{currentState}</div>
+      <div className="my-auto flex flex-col">
+        <div className="pl-2 text-2xl">{currentState}</div>
         {currentState == "Login" ? (
-          <div className="-mb-4 pt-4">
+          <div className=" pt-4">
             Don&apos;t have an account yet?
             <button
               className="pl-1 text-orange-400 underline"
@@ -116,7 +116,7 @@ export default function LoginPage() {
             </div>
           </div>
           {usePassword || currentState == "Register" ? (
-            <div className="-mt-4 flex justify-center">
+            <div className="flex justify-center">
               <div className="input-group mx-1">
                 <input
                   ref={passwordRef}
@@ -130,7 +130,7 @@ export default function LoginPage() {
             </div>
           ) : null}
           {currentState == "Register" ? (
-            <div className="-mt-4 flex justify-center">
+            <div className="flex justify-center">
               <div className="input-group mx-1">
                 <input
                   ref={passwordConfRef}
@@ -145,7 +145,7 @@ export default function LoginPage() {
           ) : null}
           <div className="flex justify-center py-4">{loginSubmitButton()}</div>
           {currentState == "Login" ? (
-            <div className="-mb-8 flex justify-center py-2">
+            <div className="flex justify-center py-2">
               <input
                 type="checkbox"
                 required
@@ -172,9 +172,9 @@ export default function LoginPage() {
               </Tooltip>
           </div> */}
         </form>
-        <div className="rule-around -mx-8 -mb-8 text-center">Or</div>
+        <div className="rule-around -mx-8text-center">Or</div>
         <div className="my-2 flex justify-center">
-          <div className="mx-auto mb-4 flex flex-col">
+          <div className="mx-auto flex flex-col">
             <button
               className="my-4 flex w-80 flex-row justify-between rounded bg-zinc-800 px-4 py-2 text-white hover:bg-zinc-700 active:bg-zinc-600"
               // eslint-disable-next-line @typescript-eslint/no-misused-promises
