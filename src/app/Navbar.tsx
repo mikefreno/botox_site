@@ -102,7 +102,7 @@ const menu = (menuShowing: boolean, pathname: string | null) => {
       <div
         className={`${
           menuShowing ? "navShadow right-0" : "-right-[100%]"
-        } fixed top-0 z-20 h-screen border-l-2 border-orange-200 bg-zinc-800 p-4 text-white transition-all duration-500 ease-in-out`}
+        } fixed top-0 z-20 h-[100dvh] border-l-2 border-orange-200 bg-zinc-800 p-4 text-white transition-all duration-500 ease-in-out`}
       >
         <div className="px-10 pt-[6px] text-center text-3xl font-thin italic tracking-wider">
           Navigation
