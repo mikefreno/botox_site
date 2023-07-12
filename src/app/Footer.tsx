@@ -3,8 +3,8 @@ import ContactForm from "./ContactForm";
 
 export default function Footer() {
   return (
-    <>
-      <div className="fixed top-0 z-0 flex h-screen w-screen flex-col bg-zinc-50 bg-fixed px-4 text-black md:px-12">
+    <div className="relative">
+      <div className="fixed top-0 z-30 flex h-screen w-screen flex-col bg-zinc-50 bg-fixed px-4 text-black md:px-12">
         <div className="pb-16 pt-24 text-center text-3xl tracking-widest md:pb-28 md:pt-36">
           Get in Touch
         </div>
@@ -63,6 +63,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
