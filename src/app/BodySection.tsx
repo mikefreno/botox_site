@@ -75,7 +75,7 @@ export default function BodySection() {
   }, [firstLoad, secondLoad, loadIn]);
   return (
     <>
-      <div className="max-w-[100vw]">
+      <div className="">
         <div className="topShadow relative z-50 flex flex-col justify-evenly bg-zinc-50">
           <div
             ref={anchorRefOne}

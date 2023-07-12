@@ -4,8 +4,8 @@ import Footer from "./Footer";
 export default function RootPage() {
   return (
     <>
-      <div>
-        <div className="relative overflow-hidden bg-zinc-50">
+      <div className={`z-10 mb-[100vh]`}>
+        <div className="relative z-50 overflow-hidden bg-zinc-50">
           <div className="page-fade-in z-20 h-[100dvh] w-screen bg-[url('/Stock/man-getting-botox-mobile.jpg')] bg-cover bg-fixed bg-center bg-no-repeat md:bg-[url('/Stock/man-getting-botox.jpg')]">
             <div
               className={`text-shadow fixed left-0 z-10 mt-[33vh] w-full text-center text-4xl tracking-widest text-white`}
@@ -21,7 +21,6 @@ export default function RootPage() {
           <MissionSection />
         </div>
       </div>
-      <div id="contact" />
       <Footer />
     </>
   );
