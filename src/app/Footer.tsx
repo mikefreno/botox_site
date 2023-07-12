@@ -3,8 +3,8 @@ import ContactForm from "./ContactForm";
 
 export default function Footer() {
   return (
-    <div className="">
-      <div className="z-30 flex h-[100dvh] w-screen flex-col bg-zinc-50 px-4 text-black md:px-12">
+    <div className="relative">
+      <div className="z-50 flex h-[100dvh] w-screen flex-col bg-zinc-50 px-4 text-black md:px-12">
         <div className="pb-16 pt-24 text-center text-3xl tracking-widest md:pb-28 md:pt-36">
           Get in Touch
         </div>
